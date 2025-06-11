@@ -76,6 +76,29 @@ END;
 
 select * from departments;
 
+\
+ SET SERVEROUTPUT ON;
+ DECLARE 
+    N number :=&n;
+    factorial number :=1;
+BEGIN
+    IF N<0 THEN
+    RAISE_APPLICATION_ERROR(-20001, 'Factorial is not defined for negavtive numbers');
+    ELSIF N =0 THEN
+    factorial :=1;
+    ELSE
+    FOR i IN 1..N LOOP
+    factorial :=factorial * i;
+    END LOOP;
+    END IF;
+    
+    DBMS_OUTPUT.PUT_LINE('Factorial :' || factorial);
+    END;
+    /
+
+
+
+
     
 
 

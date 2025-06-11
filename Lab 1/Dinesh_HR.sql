@@ -43,6 +43,7 @@ GROUP BY d.department_id, department_name;
 
 
 select * from departments;
+select * from employees;
 
 --find the list of all the employees who earns more than the average salary [sub-query]
 SELECT *
