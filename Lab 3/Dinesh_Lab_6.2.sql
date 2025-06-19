@@ -7,17 +7,13 @@ select * from employees;
 SET SERVEROUTPUT ON;
 
 DECLARE
-   
     v_salary NUMBER := &salary;
-
     ex_salary_too_low EXCEPTION;
-
 BEGIN
     -- Check salary
     IF v_salary < 2000 THEN
         RAISE ex_salary_too_low;
     ELSE 
-    
         INSERT INTO employees (
             employee_id,
             first_name,
@@ -32,11 +28,11 @@ BEGIN
             department_id
         )
         VALUES (
-            207,
+            209,
             'Dinesh',
             'Rana',
-            'dinesh@gmail.com',
-            '9876543210',
+            'dinesh111@gmail.com',
+            '9876543219',
             TO_DATE('2025-05-09', 'YYYY-MM-DD'),
             'IT_PROG',
             2100,
@@ -94,17 +90,17 @@ BEGIN
             department_id
         )
         VALUES (
-            208,
+            290,
             'Dinesh',
             'Rana',
-            'dinesh@gmail.com',
-            '9876543210',
+            'dinesh122@gmail.com',
+            '9876543219',
             TO_DATE('2025-05-09', 'YYYY-MM-DD'),
-            'IT_PROG',
+            'HR_REP',
             v_salary,
             0.1,
             v_mgr_id,
-            80
+            60
         );
 
         DBMS_OUTPUT.PUT_LINE('Employee record inserted successfully.');
@@ -118,15 +114,12 @@ EXCEPTION
     WHEN NO_DATA_FOUND THEN
         DBMS_OUTPUT.PUT_LINE('Error: Manager not found with ID ' || v_mgr_id);
 
-    WHEN DUP_VAL_ON_INDEX THEN
-        DBMS_OUTPUT.PUT_LINE('Error: Employee ID 208 already exists.');
-
     WHEN OTHERS THEN
         DBMS_OUTPUT.PUT_LINE('Unexpected error');
 COMMIT;
 END;
 /
-
+select * from jobs;
 /*
 RAISE an exception if date hired is greater than the current date
 */
